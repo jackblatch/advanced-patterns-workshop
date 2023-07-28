@@ -1,6 +1,10 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-export function makeEventHandlers(obj: unknown) {
+type TypedObj<T> = {
+  [K in keyof T]: (name: K) => void;
+};
+
+export function makeEventHandlers<T>(obj: TypedObj<T>) {
   return obj;
 }
 
